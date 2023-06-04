@@ -1,0 +1,13 @@
+img {
+    height: 2rem;
+    width: 2rem;
+}
+form{
+    position: fixed;
+    right: 2rem;
+    top: 2rem;
+}
+#thumbnail{
+    display: block;
+    margin-top: 1rem;
+}
