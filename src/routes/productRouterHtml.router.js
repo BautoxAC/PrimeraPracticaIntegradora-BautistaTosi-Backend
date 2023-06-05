@@ -5,4 +5,4 @@ productRouterHtml.get('/', function (req, res) {
     const list = new ProductManager("src/public/products.json")
     const products = list.getProducts()
     return res.status(200).render("index", { products })
-})
+})cv
