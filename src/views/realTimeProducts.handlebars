@@ -8,9 +8,9 @@
             <p>Stock: {{this.stock}}</p>
             <p>Precio: {{this.price}}</p>
             <p>Codigo: {{this.code}}</p>
-            <p>Id: {{this.id}}</p>
+            <p>Id: {{this._id}}</p>
             <p>Img: {{#each this.thumbnails}}<img src="{{this}}">{{/each}}</p>
-            <button id="{{this.id}}"><img src="http://localhost:8080/assets/quitar.png" alt="Eliminar producto"
+            <button id="{{this._id}}"><img src="http://localhost:8080/assets/quitar.png" alt="Eliminar producto"
                     title="Eliminar producto"></button>
         </li>
         {{/each}}

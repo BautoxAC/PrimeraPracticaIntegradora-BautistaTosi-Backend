@@ -1,45 +1,5 @@
 [
   {
-    "title": "dasasd",
-    "id": "4d11339f-18cc-441e-95cc-7c5c1c2ad01b",
-    "code": "dsfsdf",
-    "stock": 1,
-    "price": 23,
-    "thumbnails": [],
-    "description": "foto de unos jeans azules",
-    "status": true
-  },
-  {
-    "title": "MediasC",
-    "id": "305d9725-f122-4074-ac9f-fb460868515f",
-    "code": "medias1",
-    "stock": 10,
-    "price": 30,
-    "thumbnails": [],
-    "description": "foto de medias color celeste",
-    "status": true
-  },
-  {
-    "title": "aa",
-    "id": "69ec1943-32a0-4414-a136-006089161c4e",
-    "code": "aa",
-    "stock": 1,
-    "price": 23,
-    "thumbnails": [],
-    "description": "for de medias de color azul",
-    "status": true
-  },
-  {
-    "title": "Bluney",
-    "id": "6f70345c-3b51-4151-9799-2474fd7a9e8d",
-    "code": "remeras3",
-    "stock": 12,
-    "price": 20,
-    "thumbnails": [],
-    "description": "foto de remera azul oscuro sin estampado",
-    "status": true
-  },
-  {
     "title": "PantC",
     "id": "7985b3d6-4d95-42ee-ac86-60ba7bf55f12",
     "code": "pantalones3",
@@ -109,6 +69,18 @@
     "price": 20,
     "thumbnails": [],
     "description": "foto de remera de color azul llamada lightE2",
+    "status": true
+  },
+  {
+    "title": "sdffsd",
+    "description": "sdf",
+    "price": 234,
+    "thumbnails": [
+      "http://localhost:8080/Captura de pantalla (10).png"
+    ],
+    "code": "efdf34e",
+    "stock": 23,
+    "id": "13d6cda3-6a6d-4e78-a8dc-2fcf9a04f9ef",
     "status": true
   }
 ]

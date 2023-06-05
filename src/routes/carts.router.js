@@ -1,12 +1,12 @@
 import express from "express"
-import { CartManager } from "../ProductManager.js"
+import { CartManagerDB } from "../DAO/DB/ProductManagerDB.js"
 import { newMessage } from "../utils.js"
 export const cartsRouter = express.Router()
-const list = new CartManager("src/public/carts.json")
+const list = new CartManagerDB()
 
-cartsRouter.get("/:cid", (req, res) => {
+cartsRouter.get("/:cid",async (req, res) => {
     const Id = req.params.cid
-    return res.status(200).json(newMessage("success", "carrito por id", list.getCartById(Id)))
+    return res.status(200).json(newMessage("success", "carrito por id", await list.getCartById(Id)))
 })
 cartsRouter.post("/", async (req, res) => {
     return res.status(200).json(await list.addCart())

@@ -1,3 +1,4 @@
+
 const socket = io()
 const code = document.getElementById("code")
 const title = document.getElementById("title")
@@ -17,16 +18,16 @@ function renderProducts(products) {
         <p>Stock: ${product.stock}</p>
         <p>Precio: ${product.price}</p>
         <p>Codigo: ${product.code}</p>
-        <p>Id: ${product.id}</p>
+        <p>Id: ${product._id}</p>
         <p>Img: ${imgs}</p>
-        <button id="${product.id}"><img src="http://localhost:8080/assets/quitar.png" alt="Eliminar producto"
+        <button id="${product._id}"><img src="http://localhost:8080/assets/quitar.png" alt="Eliminar producto"
         title="Eliminar producto"></button>
         </li>`
     }
     for (let i = 0; i < products.length; i++) {
         const product = products[i]
-        const { id } = product
-        document.getElementById(id).addEventListener("click", () => {
+        const { _id } = product
+        document.getElementById(_id).addEventListener("click", () => {
             socket.emit("msg_front_to_back_delete_product", product)
         })
     }
@@ -44,9 +45,10 @@ socket.on("newProduct_to_front", (product, products) => {
     }
 })
 socket.on("msg_back_to_front_products", (products) => {
+    renderProducts(products)
     for (let i = 0; i < products.length; i++) {
         const product = products[i]
-        document.getElementById(product.id).addEventListener("click", () => {
+        document.getElementById(product._id).addEventListener("click", () => {
             socket.emit("msg_front_to_back_delete_product", product)
         })
     }

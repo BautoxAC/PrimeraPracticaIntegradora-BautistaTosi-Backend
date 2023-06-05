@@ -1,13 +1,11 @@
 import express from "express"
-import { cartsRouter } from "./routes/carts.router.js"
-import { productsRouter } from "./routes/products.router.js"
-import { __dirname } from "./utils.js"
-import path from "path"
-import { Server } from "socket.io"
 import handlebars from "express-handlebars"
+import path from "path"
+import { cartsRouter } from "./routes/carts.router.js"
 import { productRouterHtml } from "./routes/productRouterHtml.router.js"
+import { productsRouter } from "./routes/products.router.js"
 import { productsSocketRouter } from "./routes/productsSocketRouter.router.js"
-import { connectSocketServer } from "./utils.js"
+import { __dirname, connectMongo, connectSocketServer } from "./utils.js"
 const app = express()
 const port = 8080
 
@@ -34,10 +32,12 @@ const httpServer = app.listen(port, () => {
     console.log(`Example app listening on port http://localhost:${port}`)
 })
 
-const socketServer = new Server(httpServer)
-
 // Execute SocketSever in Rute /realtimeserver
-connectSocketServer(socketServer)
+
+connectSocketServer(httpServer)
+
+//Connect Mongo
+connectMongo()
 
 app.get("*", (req, res) => {
     return res.status(404).json({
