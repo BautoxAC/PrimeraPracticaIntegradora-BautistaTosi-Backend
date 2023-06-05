@@ -1,0 +1,23 @@
+<div>
+    {{#if logged}}
+    <ol>
+        {{#each messages}}
+        <li>
+            <p>{{this.user}}</p>
+            <p>{{this.message}}</p>
+        </li>
+        {{/each}}
+    </ol>
+    {{else}}
+    <div>
+        <h2>¿Quieres ver el chat?</h2>
+        <div>
+            <a href="http://localhost:8080/chat/AuthLogin"><button id="register">Registrate</button></a>
+            <a href="http://localhost:8080/chat/AuthLogin"><button id="login">Inicia sesion</button></a>
+        </div>
+    </div>
+    {{/if}}
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/chatSocket.js"></script>

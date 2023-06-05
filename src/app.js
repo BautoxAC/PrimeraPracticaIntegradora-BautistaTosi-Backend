@@ -6,6 +6,7 @@ import { productRouterHtml } from "./routes/productRouterHtml.router.js"
 import { productsRouter } from "./routes/products.router.js"
 import { productsSocketRouter } from "./routes/productsSocketRouter.router.js"
 import { __dirname, connectMongo, connectSocketServer } from "./utils.js"
+import { chatRouter } from "./routes/chat.router.js"
 const app = express()
 const port = 8080
 
@@ -27,6 +28,7 @@ app.use("/products", productRouterHtml)
 
 //Rutes: SOCKETS
 app.use("/realtimeproducts", productsSocketRouter)
+app.use("/chat",chatRouter)
 
 const httpServer = app.listen(port, () => {
     console.log(`Example app listening on port http://localhost:${port}`)

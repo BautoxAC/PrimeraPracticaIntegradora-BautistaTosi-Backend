@@ -1,0 +1,26 @@
+<form action="/chat" method="post" enctype="multipart/form-data" class="logIn">
+    <fieldset>
+        <h2>Registrate</h2>
+        <label for="userName">Nombre de usuario</label>
+        <input type="text" id="userName" name="userName">
+        <hr>
+        <label for="userPassword">Contraseña</label>
+        <input type="password" id="userPassword" name="userPassword">
+        <hr>
+        <input type="submit" id="buttonSumbit">
+    </fieldset>
+</form>
+<form action="/chat" method="get" enctype="multipart/form-data" class="logIn">
+    <fieldset>
+        <h2>Inicia sesion</h2>
+        <label for="userName">Nombre de usuario</label>
+        <input type="text" id="userName" name="userName">
+        <hr>
+        <label for="userPassword">Contraseña</label>
+        <input type="password" id="userPassword" name="userPassword">
+        <hr>
+        <input type="submit" id="buttonSumbit">
+    </fieldset>
+</form>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/chatSocket.js"></script>
