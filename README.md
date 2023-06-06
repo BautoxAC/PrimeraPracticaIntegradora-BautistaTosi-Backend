@@ -1,6 +1,6 @@
 # Explicación
 
-Este proyecto es un API básica que sigue las consignas de la primera practica integradora de CoderHouse funcionando con MongoDB.
+Este proyecto es un API básica que sigue las consignas de la primera practica integradora de CoderHouse funcionando con MongoDB. Para que funcione hace falta poner este link en MongoDB Compass ["mongodb+srv://tosibautista:cp1xhHvnLrZzSDMQ@cluster0.so00fzx.mongodb.net/ecommerce"]
 
 ## Rutas
 /chat es un chat que funciona con socket y tienes que iniciar sesion para usarlo
