@@ -18,6 +18,7 @@ Documentación de las Dependecias:
 3. uuid: [https://github.com/uuidjs/uuid#readme]
 4. socket.io: [https://socket.io/docs/v4/]
 5. express-handlebars: [https://www.npmjs.com/package/express-handlebars]
+6. Mongoose:[https://mongoosejs.com]
 
 ### `npm start`
 
