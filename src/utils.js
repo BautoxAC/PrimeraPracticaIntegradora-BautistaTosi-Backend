@@ -1,8 +1,7 @@
 import multer from "multer"
 import { Server } from "socket.io"
+import { MessageManagerDB, UserManagerDB } from "./DAO/DB/MessageManagerDB.js"
 import { ProductManagerDB } from "./DAO/DB/ProductManagerDB.js"
-import { Productmodel } from "./DAO/models/products.model.js"
-import { ProductManager } from "./DAO/FileSystem/ProductManager.js"
 //------------MULTER------------------
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -31,7 +30,30 @@ export function connectSocketServer(httpServer) {
   const socketServer = new Server(httpServer)
   socketServer.on("connection", async (socket) => {
     console.log("cliente conectado")
+    const userManager = new UserManagerDB()
+    const MessageManager = new MessageManagerDB()
     const list = new ProductManagerDB()
+    socket.on("new_user_front_to_back", async (data) => {
+      let message = {}
+      try {
+        await userManager.addUsser(data.userPassword, data.userName)
+        message = { message: "Nice job", status: true, data: data.userName }
+      } catch (e) {
+        message = { message: "Something went wrong", status: false }
+        console.log(e)
+      }
+      socket.emit("logged_back_to_front", message)
+    })
+    socket.on("new_message_front_to_back", async (message, userName) => {
+      try {
+        await MessageManager.addMessage(message, userName)
+        const messages = await MessageManager.getMessages()
+        socket.emit("message_created_back_to_front", newMessage(true, "message created", messages))
+      } catch (e) {
+        console.log(e)
+        socket.emit("message_created_back_to_front", newMessage(false, "an error ocurred", ""))
+      }
+    })
     socket.on("msg_front_to_back", async (data) => {
       try {
         const { title, description, price, thumbnails, code, stock } = data.data

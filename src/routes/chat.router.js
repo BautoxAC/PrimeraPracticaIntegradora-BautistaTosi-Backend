@@ -1,12 +1,11 @@
 import express from "express"
-import { newMessage } from "../utils.js"
+import { MessageManagerDB } from "../DAO/DB/MessageManagerDB.js"
 export const chatRouter = express.Router()
-
-chatRouter.get("/",async (req, res) => {
-    return res.render("chat")
-})
-chatRouter.post("/", async (req, res) => {
-    return res.render("chat")
+const MessageManager = new MessageManagerDB()
+chatRouter.get("/", async (req, res) => {
+    const { logged, user } = req.query
+    const messages = await MessageManager.getMessages()
+    return res.render("chat", { logged, messages: messages.reverse(), user })
 })
 chatRouter.get("/AuthLogin", (req, res) => {
     return res.render("AuthLogin")

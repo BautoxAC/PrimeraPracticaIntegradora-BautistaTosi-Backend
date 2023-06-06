@@ -1,7 +1,10 @@
 # Explicación
 
-Este proyecto es un API básica que sigue las consignas de la 1erPreEntrega del proyecto final de CoderHouse del curso de Backend.Esta Api maneja objetos de javascript que recibe y los persiste en archivos de tipo JSON y los devuelve mediante endpoints y sus router creados con Express estos endpoits se encuentran documentados en el link de Postman. Además, en el endponit /realtimeproducts renderizado con handlebars donde hay una lista de productos traida del archivo de products.json tiene además un boton para eliminar el producto y un formulario que agrega un producto por vez y necesita todos los datos; y estos cambios se hacen instanteneamente con socket.io. Luego hay otra ruta que es /products que a traves de postman se puede cambiar la lista pero no se actualiza inmediatamente por la falta de socket.io.
+Este proyecto es un API básica que sigue las consignas de la primera practica integradora de CoderHouse funcionando con MongoDB.
+
 ## Rutas
+/chat es un chat que funciona con socket y tienes que iniciar sesion para usarlo
+
 /realtimeproducts con socket
 
 /products sin socket
